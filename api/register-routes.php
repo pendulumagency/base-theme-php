@@ -21,8 +21,8 @@ define( 'WP_REST_API_MENUS_SCHEMA', '1.0' );
 /**
  * Get required dependencies. In this case we're not autoloading anything for back compat.
  */
-require plugin_dir_path( __FILE__ ) . '/inc/menus-controller.php';
-require plugin_dir_path( __FILE__ ) . '/inc/public-settings-controller.php';
+require __DIR__ . '/inc/menus-controller.php';
+require __DIR__ . '/inc/public-settings-controller.php';
 
 /**
  * Get things started.

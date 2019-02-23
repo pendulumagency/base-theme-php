@@ -7,6 +7,11 @@
  * @package Base-theme
  */
 
+define('BaseThemeDirectory', '/vendor/pendulum/base-theme-php');
+define('TemplateDirectory', get_template_directory() . BaseThemeDirectory);
+define('TemplateDirectoryUri', get_template_directory_uri() . BaseThemeDirectory);
+define('StylesheetUri', get_stylesheet_uri() . BaseThemeDirectory);
+
 if ( ! function_exists( 'base_theme_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -22,7 +27,7 @@ if ( ! function_exists( 'base_theme_setup' ) ) :
 		 * If you're building a theme based on Base-theme, use a find and replace
 		 * to change 'base-theme' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'base-theme', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'base-theme', TemplateDirectory . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -142,7 +147,7 @@ function baseThemeSettingsPageScripts($hook) {
 		</script>
 	<?php
 
-	wp_enqueue_script('base-theme-settings-page', get_template_directory_uri() . '/js/theme-settings.js', [], null, true);
+	wp_enqueue_script('base-theme-settings-page', TemplateDirectoryUri . '/js/theme-settings.js', [], null, true);
 }
 add_action( 'admin_enqueue_scripts', 'baseThemeSettingsPageScripts' );
 
@@ -206,13 +211,13 @@ add_action( 'widgets_init', 'base_theme_widgets_init' );
  * Enqueue scripts and styles. x
  */
 function base_theme_scripts() {
-	wp_enqueue_style( 'base-theme-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'base-theme-style', StylesheetUri );
 
-	wp_enqueue_script('base-theme-main', get_template_directory_uri() . '/js/main.js', ['wp-element'], null, true);
+	wp_enqueue_script('base-theme-main', TemplateDirectoryUri . '/js/main.js', ['wp-element'], null, true);
 
-	wp_enqueue_script( 'base-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	// wp_enqueue_script( 'base-theme-navigation', TemplateDirectoryUri . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'base-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	// wp_enqueue_script( 'base-theme-skip-link-focus-fix', TemplateDirectoryUri . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -229,7 +234,7 @@ function base_theme_blocks() {
 	
 	wp_register_script(
 		$handle,
-		get_template_directory_uri() . '/js/editor.js',
+		TemplateDirectoryUri . '/js/editor.js',
 		['wp-blocks', 'wp-element'],
 		null,
 		true
@@ -237,7 +242,7 @@ function base_theme_blocks() {
 
 	wp_register_style(
 		$handle,
-		get_template_directory_uri() . '/css/editor.css',
+		TemplateDirectoryUri . '/css/editor.css',
 		['wp-edit-blocks']
 	);
 
@@ -276,34 +281,34 @@ add_action( 'init', 'base_theme_blocks' );
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+require TemplateDirectory . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require TemplateDirectory . '/inc/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-functions.php';
+require TemplateDirectory . '/inc/template-functions.php';
 
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+require TemplateDirectory . '/inc/customizer.php';
 
 /**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+	require TemplateDirectory . '/inc/jetpack.php';
 }
 
 /**
  * Register custom API routes for Base Theme
  */
-require get_template_directory() . '/api/register-routes.php';
+require TemplateDirectory . '/api/register-routes.php';
 
 
 
