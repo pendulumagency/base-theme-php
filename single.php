@@ -7,7 +7,7 @@
  * @package Base-theme
  */
 
-get_header();
+//get_header();
 ?>
 
 	<div class="bt-page-container">
