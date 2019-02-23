@@ -11,8 +11,6 @@
  *
  * @package Base-theme
  */
-
-//get_header();
 ?>
 
 	<div class="bt-page-container">
@@ -36,7 +34,3 @@
 		</main><!-- #main -->
 	<!-- </div> -->
 	</div>
-
-<?php
-get_sidebar();
-get_footer();

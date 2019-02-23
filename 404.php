@@ -6,8 +6,6 @@
  *
  * @package Base-theme
  */
-
-//get_header();
 ?>
 
 	<div id="primary" class="content-area">
@@ -55,6 +53,3 @@
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
-<?php
-get_footer();

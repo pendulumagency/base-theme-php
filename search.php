@@ -6,8 +6,6 @@
  *
  * @package Base-theme
  */
-
-//get_header();
 ?>
 
 	<section id="primary" class="content-area">
@@ -49,7 +47,3 @@
 
 		</main><!-- #main -->
 	</section><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();

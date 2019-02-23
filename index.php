@@ -12,8 +12,22 @@
  * @package Base-theme
  */
 
-//get_header();
+require __DIR__ . "/header.php";
+
+if (is_page()) {
+	require __DIR__ . "/page.php";
+} else if (is_single()) {
+	require __DIR__ . "/single.php";
+} else if (is_404()) {
+	require __DIR__ . "/404.php";
+} else if (is_search()) {
+	require __DIR__ . "/search.php";
+} else if (is_archive()) {
+	require __DIR__ . "/archive.php";
+} else {
+
 ?>
+
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
@@ -55,5 +69,6 @@
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
-get_footer();
+}
+
+require __DIR__ . "/footer.php";
