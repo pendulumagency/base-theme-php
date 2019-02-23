@@ -10,7 +10,7 @@
 define('BaseThemeDirectory', '/vendor/pendulum/base-theme-php');
 define('TemplateDirectory', get_template_directory() . BaseThemeDirectory);
 define('TemplateDirectoryUri', get_template_directory_uri() . BaseThemeDirectory);
-define('StylesheetUri', get_stylesheet_uri() . BaseThemeDirectory);
+// define('StylesheetUri', get_stylesheet_uri() . BaseThemeDirectory); // This is wrong
 
 if ( ! function_exists( 'base_theme_setup' ) ) :
 	/**
@@ -211,9 +211,9 @@ add_action( 'widgets_init', 'base_theme_widgets_init' );
  * Enqueue scripts and styles. x
  */
 function base_theme_scripts() {
-	wp_enqueue_style( 'base-theme-style', StylesheetUri );
+	// wp_enqueue_style( 'base-theme-style', StylesheetUri );
 
-	wp_enqueue_script('base-theme-main', TemplateDirectoryUri . '/js/main.js', ['wp-element'], null, true);
+	// wp_enqueue_script('base-theme-main', TemplateDirectoryUri . '/js/main.js', ['wp-element'], null, true);
 
 	// wp_enqueue_script( 'base-theme-navigation', TemplateDirectoryUri . '/js/navigation.js', array(), '20151215', true );
 
