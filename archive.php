@@ -9,46 +9,43 @@
 
 //get_header();
 ?>
-	<div class="base-content-container">
-	<!-- <div id="primary" class="content-area"> -->
-		<main id="main" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+<base-content-container>
+<!-- <div id="primary" class="content-area"> -->
+	<main id="main" class="site-main">
 
-			<header class="base-page-header">
-				<?php
-				the_archive_title( '<h1 class="base-page-title">', '</h1>' );
-				the_archive_description( '<div class="base-archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+	<?php if ( have_posts() ) : ?>
 
+		<header class="base-page-header">
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			the_archive_title( '<h1 class="base-page-title">', '</h1>' );
+			the_archive_description( '<div class="base-archive-description">', '</div>' );
+			?>
+		</header><!-- .page-header -->
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( BaseThemeDirectory . '/template-parts/content', get_post_type() );
+		<?php
+		/* Start the Loop */
+		while ( have_posts() ) :
+			the_post();
 
-			endwhile;
+			/*
+				* Include the Post-Type-specific template for the content.
+				* If you want to override this in a child theme, then include a file
+				* called content-___.php (where ___ is the Post Type name) and that will be used instead.
+				*/
+			get_template_part( BaseThemeDirectory . '/template-parts/content', get_post_type() );
 
-			the_posts_navigation();
+		endwhile;
 
-		else :
+		the_posts_navigation();
 
-			get_template_part( BaseThemeDirectory . '/template-parts/content', 'none' );
+	else :
 
-		endif;
-		?>
+		get_template_part( BaseThemeDirectory . '/template-parts/content', 'none' );
 
-		</main><!-- #main -->
-	<!-- </div>#primary -->
-	</div>
+	endif;
+	?>
 
-<?php
-get_sidebar();
-get_footer();
+	</main><!-- #main -->
+<!-- </div>#primary -->
+</base-content-container>
