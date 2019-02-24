@@ -9,16 +9,16 @@
 
 //get_header();
 ?>
-	<div class="bt-page-container">
+	<div class="base-content-container">
 	<!-- <div id="primary" class="content-area"> -->
 		<main id="main" class="site-main">
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="bt-page-header">
+			<header class="base-page-header">
 				<?php
-				the_archive_title( '<h1 class="bt-page-title">', '</h1>' );
-				the_archive_description( '<div class="bt-archive-description">', '</div>' );
+				the_archive_title( '<h1 class="base-page-title">', '</h1>' );
+				the_archive_description( '<div class="base-archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 

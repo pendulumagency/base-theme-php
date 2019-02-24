@@ -8,7 +8,7 @@
  */
 ?>
 
-	<div class="bt-page-container">
+	<div class="base-content-container">
 	<!-- <div id="primary" class="content-area"> -->
 		<main id="main" class="site-main">
 

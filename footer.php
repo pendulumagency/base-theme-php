@@ -49,8 +49,8 @@
 		</div> .site-info -->
 	</footer><!-- #colophon -->
 <!-- </div>#page -->
-</bt-page>
-</bt-page-wrapper> <!-- .bt-page-wrapper -->
+</base-page>
+</base-page-wrapper> <!-- .base-page-wrapper -->
 
 
 <?php

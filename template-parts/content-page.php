@@ -17,7 +17,7 @@
 	<?php base_theme_post_thumbnail(); ?> */?>
 
 	
-	<div class="bt-page-content">
+	<div class="base-page-content">
 		<?php if( function_exists( 'is_gutenberg_page' ) && !is_gutenberg_page() ) { ?>
 			<header class="entry-header">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>

@@ -103,7 +103,7 @@ add_action( 'after_setup_theme', 'base_theme_setup' );
  * 
  */
 function baseThemeAdminOptionsPage() { ?>
-	<bt-theme-settings></bt-theme-settings>
+	<base-theme-settings></base-theme-settings>
 <?php }
 
 
@@ -234,7 +234,7 @@ function base_theme_blocks() {
 	
 	wp_register_script(
 		$handle,
-		TemplateDirectoryUri . '/js/editor.js',
+		get_template_directory_uri() . '/js/editor.js',
 		['wp-blocks', 'wp-element'],
 		null,
 		true
@@ -242,7 +242,7 @@ function base_theme_blocks() {
 
 	wp_register_style(
 		$handle,
-		TemplateDirectoryUri . '/css/editor.css',
+		get_template_directory_uri(). '/css/editor.css',
 		['wp-edit-blocks']
 	);
 
@@ -319,7 +319,7 @@ function yearShortcode() {
     return date("Y");
 }
 
-add_shortcode( 'bt-year', 'yearShortcode' );
+add_shortcode( 'base-year', 'yearShortcode' );
 
 
 

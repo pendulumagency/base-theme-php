@@ -17,7 +17,7 @@ class PublicSettingsRestController extends WP_REST_Controller {
 	/**
 	 * @var string $namespace
 	 */
-	protected $namespace = 'bt-api/v1';
+	protected $namespace = 'base-api/v1';
 	/**
 	 * @var MenusRestController
 	 */

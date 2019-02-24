@@ -11,14 +11,14 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="bt-post">
-		<div class="bt-post-container">
+	<div class="base-post">
+		<div class="base-post-container">
 			<header class="entry-header">
 				<?php
 				if ( is_singular() ) :
-					the_title( '<h1 class="bt-entry-title">', '</h1>' );
+					the_title( '<h1 class="base-entry-title">', '</h1>' );
 				else :
-					the_title( '<h2 class="bt-entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+					the_title( '<h2 class="base-entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 				endif;
 
 				if ( 'post' === get_post_type() ) :
