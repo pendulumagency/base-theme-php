@@ -234,7 +234,7 @@ function base_theme_blocks() {
 	
 	wp_register_script(
 		$handle,
-		get_template_directory_uri() . '/js/editor.js',
+		get_template_directory_uri() . '/editor.js',
 		['wp-blocks', 'wp-element'],
 		null,
 		true
@@ -242,7 +242,7 @@ function base_theme_blocks() {
 
 	wp_register_style(
 		$handle,
-		get_template_directory_uri(). '/css/editor.css',
+		get_template_directory_uri(). '/editor.css',
 		['wp-edit-blocks']
 	);
 
