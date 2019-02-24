@@ -147,7 +147,7 @@ function baseThemeSettingsPageScripts($hook) {
 		</script>
 	<?php
 
-	wp_enqueue_script('base-theme-settings-page', TemplateDirectoryUri . '/js/theme-settings.js', [], null, true);
+	wp_enqueue_script('base-theme-settings-page', get_template_directory_uri() . '/js/theme-settings.js', [], null, true);
 }
 add_action( 'admin_enqueue_scripts', 'baseThemeSettingsPageScripts' );
 
