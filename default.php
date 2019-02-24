@@ -1,25 +1,31 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying all pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Base-theme
  */
-
-//get_header();
 ?>
 
-	<?php if ( have_posts() ) : ?>
+<base-content-container>
 
-		<header class="base-page-header">
-			<?php
-			the_archive_title( '<h1 class="base-page-title">', '</h1>' );
-			the_archive_description( '<div class="base-archive-description">', '</div>' );
+	<?php
+	if ( have_posts() ) :
+
+		if ( is_home() && ! is_front_page() ) :
 			?>
-		</header><!-- .page-header -->
+			<header>
+				<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+			</header>
+			<?php
+		endif;
 
-		<?php
 		/* Start the Loop */
 		while ( have_posts() ) :
 			the_post();
@@ -41,3 +47,5 @@
 
 	endif;
 	?>
+
+</base-content-container>

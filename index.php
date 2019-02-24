@@ -13,62 +13,69 @@
  */
 
 require __DIR__ . "/header.php";
-
-if (is_page()) {
-	require __DIR__ . "/page.php";
-} else if (is_single()) {
-	require __DIR__ . "/single.php";
-} else if (is_404()) {
-	require __DIR__ . "/404.php";
-} else if (is_search()) {
-	require __DIR__ . "/search.php";
-} else if (is_archive()) {
-	require __DIR__ . "/archive.php";
-} else {
-
 ?>
 
 
-<base-content-container>
-	<main id="main" class="site-main">
+<body <?php body_class(); ?>>
+	<base-page-wrapper>
+		<base-page>
+			<header>
+				<base-top-navigation></base-top-navigation>
+			</header>
+
+			<div id="content" class="site-content">
+				<base-content-container>
+
+					<?php
+					if (is_page()) {
+						require __DIR__ . "/page.php";
+					} else if (is_single()) {
+						require __DIR__ . "/single.php";
+					} else if (is_404()) {
+						require __DIR__ . "/404.php";
+					} else if (is_search()) {
+						require __DIR__ . "/search.php";
+					} else if (is_archive()) {
+						require __DIR__ . "/archive.php";
+					} else {
+						require __DIR__ . "/default.php";
+					} ?>
+					
+				</base-content-container>
+			</div><!-- #content -->
+
+			<?php require __DIR__ . "/footer.php"; ?>
+
+		</base-page>
+	</base-page-wrapper> <!-- .base-page-wrapper -->
 
 	<?php
-	if ( have_posts() ) :
+		$wpSiteInfo = [
+			'siteUrl' => get_site_url(),
+			'siteDisplayName' => get_bloginfo( 'name', 'display' ),
+			'homeUrl' => home_url( '/' )
+		];
 
-		if ( is_home() && ! is_front_page() ) :
-			?>
-			<header>
-				<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-			</header>
-			<?php
-		endif;
+		$customLogoId = get_theme_mod( 'custom_logo' );
 
-		/* Start the Loop */
-		while ( have_posts() ) :
-			the_post();
+		if ($customLogoId) {
+			$customLogo = [];
 
-			/*
-				* Include the Post-Type-specific template for the content.
-				* If you want to override this in a child theme, then include a file
-				* called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				*/
-			get_template_part( BaseThemeDirectory . '/template-parts/content', get_post_type() );
+			$customLogo['imageAlt'] = get_post_meta( $customLogoId, '_wp_attachment_image_alt', true );
 
-		endwhile;
+			// TODO: Get data about image and its available sizes rather than raw HTML
+			$customLogo['imageHtml'] = wp_get_attachment_image( $customLogoId, 'full', false);
 
-		the_posts_navigation();
-
-	else :
-
-		get_template_part( BaseThemeDirectory . '/template-parts/content', 'none' );
-
-	endif;
+			$wpSiteInfo['customLogo'] = $customLogo;
+		}
 	?>
 
-	</main><!-- #main -->
-</base-content-container>
+	<script>
+		var _wpSiteInfo = <?php echo json_encode($wpSiteInfo); ?>;
+		console.log(_wpSiteInfo);
+	</script>
 
-<?php
-}
+	<?php wp_footer(); ?>
 
-require __DIR__ . "/footer.php";
+</body>
+</html>

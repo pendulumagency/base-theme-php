@@ -21,12 +21,3 @@
 
 	<?php wp_head(); ?>
 </head>
-
-<body <?php body_class(); ?>>
-	<base-page-wrapper>
-		<base-page>
-			<header>
-				<base-top-navigation></base-top-navigation>
-			</header>
-
-			<div id="content" class="site-content">

@@ -8,9 +8,6 @@
  */
 ?>
 
-<base-content-container>
-	<main id="main" class="site-main">
-
 		<section class="error-404 not-found">
 			<header class="page-header">
 				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'base-theme' ); ?></h1>
@@ -50,6 +47,3 @@
 
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
-</base-content-container>

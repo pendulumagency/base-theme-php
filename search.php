@@ -8,9 +8,6 @@
  */
 ?>
 
-<base-content-container>
-	<main id="main" class="site-main">
-
 	<?php if ( have_posts() ) : ?>
 
 		<header class="page-header">
@@ -44,6 +41,3 @@
 
 	endif;
 	?>
-
-	</main><!-- #main -->
-</base-content-container>
