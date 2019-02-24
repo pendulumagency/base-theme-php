@@ -9,10 +9,10 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<base-post id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="base-post">
-		<div class="base-post-container">
+	<article>
+		<base-post-container>
 			<header class="entry-header">
 				<?php
 				if ( is_singular() ) :
@@ -54,13 +54,7 @@
 					'after'  => '</div>',
 				) );
 				?>
-			</div><!-- .entry-content -->
-
-			<!-- <footer class="entry-footer">
-				<?php 
-				// base_theme_entry_footer();
-				?>
-			</footer> -->
-		</div>
-	</div>
-</article><!-- #post-<?php the_ID(); ?> -->
+			</div>
+		</base-post-container>
+	</article>
+</base-post>
