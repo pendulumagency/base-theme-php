@@ -1,20 +1,7 @@
-<?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Base-theme
- */
+<!doctype html>
+<html <?php language_attributes(); ?>>
 
-require __DIR__ . "/header.php";
-?>
-
+<?php require __DIR__ . "/head.php"; ?>
 
 <body <?php body_class(); ?>>
 	<base-page-wrapper>
@@ -23,7 +10,7 @@ require __DIR__ . "/header.php";
 				<base-top-navigation></base-top-navigation>
 			</header>
 
-			<div id="content" class="site-content">
+			<main>
 				<base-content-container>
 
 					<?php
@@ -40,9 +27,9 @@ require __DIR__ . "/header.php";
 					} else {
 						require __DIR__ . "/default.php";
 					} ?>
-					
+
 				</base-content-container>
-			</div><!-- #content -->
+			</main>
 
 			<?php require __DIR__ . "/footer.php"; ?>
 
@@ -72,7 +59,6 @@ require __DIR__ . "/header.php";
 
 	<script>
 		var _wpSiteInfo = <?php echo json_encode($wpSiteInfo); ?>;
-		console.log(_wpSiteInfo);
 	</script>
 
 	<?php wp_footer(); ?>
