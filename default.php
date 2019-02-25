@@ -16,18 +16,12 @@
 <base-content-container>
 
 	<?php
-	if ( have_posts() ) :
+	if ( have_posts() ) {
 
-		if ( is_home() && ! is_front_page() ) :
-			?>
-			<header>
-				<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-			</header>
-			<?php
-		endif;
+		require __DIR__ . "/page-header.php";
 
 		/* Start the Loop */
-		while ( have_posts() ) :
+		while ( have_posts() ) {
 			the_post();
 
 			/*
@@ -37,15 +31,15 @@
 				*/
 			get_template_part( BaseThemeDirectory . '/template-parts/content', get_post_type() );
 
-		endwhile;
+		}
 
 		the_posts_navigation();
 
-	else :
+	} else {
 
 		get_template_part( BaseThemeDirectory . '/template-parts/content', 'none' );
 
-	endif;
+	}
 	?>
 
 </base-content-container>

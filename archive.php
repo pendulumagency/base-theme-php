@@ -10,14 +10,9 @@
 //get_header();
 ?>
 
-	<?php if ( have_posts() ) : ?>
-
-		<header class="base-page-header">
-			<?php
-			the_archive_title( '<h1 class="base-page-title">', '</h1>' );
-			the_archive_description( '<div class="base-archive-description">', '</div>' );
-			?>
-		</header><!-- .page-header -->
+	<?php if ( have_posts() ) :
+		
+		require __DIR__ . "/page-header.php" ?>
 
 		<?php
 		/* Start the Loop */

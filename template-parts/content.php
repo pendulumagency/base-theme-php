@@ -13,24 +13,7 @@
 
 	<article>
 		<base-post-container>
-			<header class="entry-header">
-				<?php
-				if ( is_singular() ) :
-					the_title( '<h1 class="base-entry-title">', '</h1>' );
-				else :
-					the_title( '<h2 class="base-entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-				endif;
-
-				if ( 'post' === get_post_type() ) :
-					?>
-					<div class="entry-meta">
-						<?php
-						base_theme_posted_on();
-						base_theme_posted_by();
-						?>
-					</div><!-- .entry-meta -->
-				<?php endif; ?>
-			</header><!-- .entry-header -->
+			<?php require __DIR__ . "/../page-header.php" ?>
 
 			<?php base_theme_post_thumbnail(); ?>
 

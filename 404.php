@@ -9,7 +9,5 @@
 ?>
 
 <section class="error-404 not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'base-theme' ); ?></h1>
-	</header><!-- .page-header -->
-</section><!-- .error-404 -->
+	<?php require __DIR__ . "/page-header.php" ?>
+</section>

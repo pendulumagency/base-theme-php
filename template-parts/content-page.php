@@ -10,7 +10,7 @@
 ?>
 
 <base-post id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php the_title( '<h1>', '</h1>' ); ?>
+	<?php require __DIR__ . "/../page-header.php" ?>
 
 	<?php
 		the_content();

@@ -9,10 +9,10 @@
 ?>
 
 	<?php
-	while ( have_posts() ) :
+	// while ( have_posts() ) :
 		the_post();
 
-		get_template_part( BaseThemeDirectory . '/template-parts/content', get_post_type() );
+		get_template_part( BaseThemeDirectory . '/template-parts/content', 'post' );
 
 		the_post_navigation();
 
@@ -21,5 +21,5 @@
 			comments_template();
 		endif;
 
-	endwhile; // End of the loop.
+	// endwhile; // End of the loop.
 	?>
