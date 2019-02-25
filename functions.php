@@ -104,6 +104,7 @@ add_action( 'after_setup_theme', 'base_theme_setup' );
  */
 function baseThemeAdminOptionsPage() { ?>
 	<base-theme-settings></base-theme-settings>
+	<?php require __DIR__ . "/wp-site-info.php" ?>
 <?php }
 
 
