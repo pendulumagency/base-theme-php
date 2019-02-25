@@ -148,6 +148,7 @@ function baseThemeSettingsPageScripts($hook) {
 		</script>
 	<?php
 
+	wp_enqueue_script( "monaco", get_template_directory_uri() . "/monaco-editor/loader.js", [], null, true);
 	wp_enqueue_script('base-theme-settings-page', get_template_directory_uri() . '/theme-settings.js', [], null, true);
 }
 add_action( 'admin_enqueue_scripts', 'baseThemeSettingsPageScripts' );
